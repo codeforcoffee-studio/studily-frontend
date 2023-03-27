@@ -2,23 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Installation
-1. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
-```
-nvm install
-```
-
-2. Install dependencies
-```
-npm install
-```
-
-3. Start the development server
-```
-npm start
-```
-
-
 ## Available Scripts
 
 In the project directory, you can run:
