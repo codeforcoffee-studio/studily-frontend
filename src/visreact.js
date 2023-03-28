@@ -462,7 +462,7 @@ export default class VisReact extends Component {
   render() {
     return (
       <Fragment>
-        <div className="vis-react-title">vis react</div>
+        <div className="vis-react-title">Studily</div>
         <Graph
           graph={this.state.graph}
           style={this.state.style}
