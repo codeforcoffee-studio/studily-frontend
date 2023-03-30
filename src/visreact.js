@@ -4,6 +4,7 @@ import Graph from "vis-react";
 import initialGraph from "./data.json";
 var highlightActive = false;
 
+
 let options = {
   layout: {
     randomSeed: 2
@@ -182,6 +183,7 @@ export default class VisReact extends Component {
         console.log(nodes);
         console.log("Selected edges:");
         console.log(edges);
+        props.selectNode(nodes)
       },
       hoverNode: function(event) {
         console.log("hovering node: ", event)
@@ -462,7 +464,7 @@ export default class VisReact extends Component {
   render() {
     return (
       <Fragment>
-        <div className="vis-react-title">Studily</div>
+        {/* <div className="vis-react-title">Studily</div> */}
         <Graph
           graph={this.state.graph}
           style={this.state.style}

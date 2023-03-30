@@ -3,12 +3,13 @@
     text-align: center;
   }
   .vis-react {
-    width: 100vw;
-    height: 100vh;
+    height: 90vh;
+    width: 48vw;
     border: none;
-    padding: 2rem;
-    display: block;
-    margin: 0 auto;
+    /* padding: 2rem; */
+    /* display: block; */
+    /* margin: 0 auto; */
+    /* background-color: blueviolet; */
   }
   .vis-react-title {
     text-align: center;

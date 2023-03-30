@@ -1,0 +1,62 @@
+{
+    "KTBBFC50": {
+      "title": "Heart",
+      "info": "The muscular organ in the body that pumps blood through the circulatory system."
+    },
+    "KTBBFC05": {
+      "title": "Cardiac Cycle",
+      "info": "The sequence of events that occur during one complete heartbeat, including the contraction and relaxation of the heart chambers and the opening and closing of the heart valves."
+    },
+    "KTBBFC15": {
+      "title": "Heart Beat",
+      "info": "The rhythmic contraction and relaxation of the heart that produces the heartbeat."
+    },
+    "KTBBFC52": {
+      "title": "Pulse Rate",
+      "info": "The number of times the heart beats per minute, typically measured by counting the pulse at a peripheral artery."
+    },
+    "KTBBFC53": {
+      "title": "Heart Rate",
+      "info": "The number of times the heart beats per minute."
+    },
+    "KTBBFC55": {
+      "title": "Cardiac Output",
+      "info": "The amount of blood pumped by the heart per minute."
+    },
+    "KTBBFC56": {
+      "title": "Structure Of Heart",
+      "info": "The physical components and arrangement of tissues that make up the heart."
+    },
+    "KTBBFC98": {
+      "title": "Electrocardiography (ECG)",
+      "info": "A diagnostic test that records the electrical activity of the heart to detect any abnormalities in the heart's rhythm or structure."
+    },
+    "KTBBFC99": {
+      "title": "Double Circulation",
+      "info": "The circulation of blood through two separate circuits in the body: the pulmonary circulation, which carries blood between the heart and lungs, and the systemic circulation, which carries blood between the heart and rest of the body."
+    },
+    "KTBBFC102": {
+      "title": "Circulatory Disorders",
+      "info": "Diseases or conditions that affect the circulatory system, including the heart, blood vessels, and blood."
+    },
+    "KTBBFC127": {
+      "title": "Regulation Of Cardiac Output",
+      "info": "The mechanisms by which the body regulates the amount of blood pumped by the heart per minute."
+    },
+    "KTBLM92": {
+        "title": "Cardiac Muscle",
+        "info": "Muscular tissue in the walls of the heart that contracts to pump blood throughout the body."
+    },
+    "KTBBFC54": {
+        "title": "Heart Sound",
+        "info": "The sounds heard during a heartbeat, caused by the closing of heart valves."
+    },
+    "KTBBFC94": {
+        "title": "Working of Heart",
+        "info": "The process by which the heart pumps blood throughout the body, consisting of the cardiac cycle and the regulation of cardiac output."
+    },
+    "KTBBFC24": {
+        "title": "Component Of Blood Vascular System",
+        "info": "The various structures that make up the circulatory system, including the heart, blood vessels, and blood."
+    } 
+}  
