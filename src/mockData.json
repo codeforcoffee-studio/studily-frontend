@@ -1,62 +1,77 @@
 {
-    "KTBBFC50": {
-      "title": "Heart",
-      "info": "The muscular organ in the body that pumps blood through the circulatory system."
-    },
-    "KTBBFC05": {
-      "title": "Cardiac Cycle",
-      "info": "The sequence of events that occur during one complete heartbeat, including the contraction and relaxation of the heart chambers and the opening and closing of the heart valves."
-    },
-    "KTBBFC15": {
-      "title": "Heart Beat",
-      "info": "The rhythmic contraction and relaxation of the heart that produces the heartbeat."
-    },
-    "KTBBFC52": {
-      "title": "Pulse Rate",
-      "info": "The number of times the heart beats per minute, typically measured by counting the pulse at a peripheral artery."
-    },
-    "KTBBFC53": {
-      "title": "Heart Rate",
-      "info": "The number of times the heart beats per minute."
-    },
-    "KTBBFC55": {
-      "title": "Cardiac Output",
-      "info": "The amount of blood pumped by the heart per minute."
-    },
-    "KTBBFC56": {
-      "title": "Structure Of Heart",
-      "info": "The physical components and arrangement of tissues that make up the heart."
-    },
-    "KTBBFC98": {
-      "title": "Electrocardiography (ECG)",
-      "info": "A diagnostic test that records the electrical activity of the heart to detect any abnormalities in the heart's rhythm or structure."
+  "KTBBFC50": {
+  "topic": "Heart",
+  "definition": "The muscular organ in the body that pumps blood through the circulatory system.",
+  "details": "The heart is a vital organ in the body responsible for pumping blood through the circulatory system. It is made up of four chambers - the right atrium, right ventricle, left atrium, and left ventricle. The heart receives oxygen-poor blood from the body and pumps it to the lungs to be oxygenated, then receives the oxygen-rich blood and pumps it to the rest of the body. The heart's regular rhythmic contractions are controlled by an electrical system that is regulated by the nervous system. Maintaining heart health is crucial, as it is susceptible to diseases such as coronary artery disease, heart attack, and heart failure. Lifestyle choices such as regular exercise, a balanced diet, and not smoking can help keep the heart healthy. In addition, medical treatments such as medications, surgeries, and lifestyle changes can help manage heart conditions. Regular heart check-ups and screenings are also important in maintaining good heart health."
+  },
+  "KTBBFC05": {
+  "topic": "Cardiac Cycle",
+  "definition": "The sequence of events that occur during one complete heartbeat, including the contraction and relaxation of the heart chambers and the opening and closing of the heart valves.",
+  "details": "The cardiac cycle involves the coordinated contraction and relaxation of the heart's chambers and the opening and closing of its valves to facilitate blood flow. The cycle is divided into two phases: diastole, when the heart is relaxed and blood is filling the chambers, and systole, when the heart is contracting and blood is being pumped out."
+  },
+  "KTBBFC15": {
+  "topic": "Heart Beat",
+  "definition": "The rhythmic contraction and relaxation of the heart that produces the heartbeat.",
+  "details": "The heartbeat is the result of the coordinated contraction and relaxation of the heart's chambers. The heart beats about 60-100 times per minute in a healthy adult. The heart rate can be affected by various factors such as exercise, stress, and medications."
+  },
+  "KTBBFC52": {
+  "topic": "Pulse Rate",
+  "definition": "The number of times the heart beats per minute, typically measured by counting the pulse at a peripheral artery.",
+  "details": "The pulse rate is an indirect measure of the heart rate and can be felt at various points on the body, such as the wrist, neck, or ankle. The pulse rate can vary depending on age, fitness level, and overall health."
+  },
+  "KTBBFC53": {
+  "topic": "Heart Rate",
+  "definition": "The number of times the heart beats per minute.",
+  "details": "The heart rate is a measure of the number of times the heart beats per minute. A normal resting heart rate for adults is between 60 and 100 beats per minute. Heart rate can be affected by various factors such as age, fitness level, and medications."
+  },
+  "KTBBFC55": {
+  "topic": "Cardiac Output",
+  "definition": "The amount of blood pumped by the heart per minute.",
+  "details": "Cardiac output is a measure of the volume of blood pumped by the heart per minute. It is calculated by multiplying the stroke volume (the amount of blood pumped with each heartbeat) by the heart rate. Cardiac output can vary depending on physical activity, disease, and other factors."
+  },
+  "KTBBFC56": {
+  "topic": "Structure Of Heart",
+  "definition": "The physical components and arrangement of tissues that make up the heart.",
+  "details": "The heart is composed of muscle tissue and is divided into four chambers: the right atrium, right ventricle, left atrium, and left ventricle. The heart is surrounded by a sac called the pericardium and is supplied with blood by its own network of blood vessels."
+  },
+  "KTBBFC98": {
+    "topic": "Electrocardiography (ECG)",
+    "definition": "A diagnostic test that records the electrical activity of the heart to detect any abnormalities in the heart's rhythm or structure.",
+    "details": "Electrocardiography is a non-invasive diagnostic test used to evaluate the electrical activity of the heart. ECG can help detect abnormalities in heart rhythm and diagnose heart conditions, such as arrhythmias, heart attacks, and cardiomyopathy. The test is usually performed by attaching electrodes to the skin on the chest, arms, and legs, and recording the electrical activity of the heart over a period of time."
     },
     "KTBBFC99": {
-      "title": "Double Circulation",
-      "info": "The circulation of blood through two separate circuits in the body: the pulmonary circulation, which carries blood between the heart and lungs, and the systemic circulation, which carries blood between the heart and rest of the body."
+    "topic": "Double Circulation",
+    "definition": "The circulation of blood through two separate circuits in the body: the pulmonary circulation, which carries blood between the heart and lungs, and the systemic circulation, which carries blood between the heart and rest of the body.",
+    "details": "Double circulation is an efficient system that ensures oxygenated blood is delivered to the body's tissues and deoxygenated blood is returned to the lungs for re-oxygenation. The pulmonary circulation involves the movement of blood from the heart to the lungs and back, while the systemic circulation carries oxygenated blood from the heart to the body's tissues and returns deoxygenated blood to the heart. The system is coordinated by the heart's pumping action and the elasticity of the blood vessels."
     },
     "KTBBFC102": {
-      "title": "Circulatory Disorders",
-      "info": "Diseases or conditions that affect the circulatory system, including the heart, blood vessels, and blood."
+    "topic": "Circulatory Disorders",
+    "definition": "Diseases or conditions that affect the circulatory system, including the heart, blood vessels, and blood.",
+    "details": "Circulatory disorders are a group of medical conditions that affect the circulatory system, including the heart, blood vessels, and blood. Examples include hypertension, coronary artery disease, heart failure, peripheral artery disease, and deep vein thrombosis. These conditions can lead to serious complications, such as heart attacks, stroke, and organ damage. Treatment typically involves lifestyle changes, medication, and, in severe cases, surgery."
     },
     "KTBBFC127": {
-      "title": "Regulation Of Cardiac Output",
-      "info": "The mechanisms by which the body regulates the amount of blood pumped by the heart per minute."
+    "topic": "Regulation Of Cardiac Output",
+    "definition": "The mechanisms by which the body regulates the amount of blood pumped by the heart per minute.",
+    "details": "The body's regulation of cardiac output is a complex process that involves the nervous system, hormones, and other factors. Cardiac output is influenced by heart rate and stroke volume, which is the amount of blood pumped by the heart with each beat. The body can increase cardiac output to meet increased oxygen demands during exercise or stress, and decrease it during periods of rest. Imbalances in the regulation of cardiac output can lead to cardiovascular disease."
     },
     "KTBLM92": {
-        "title": "Cardiac Muscle",
-        "info": "Muscular tissue in the walls of the heart that contracts to pump blood throughout the body."
+    "topic": "Cardiac Muscle",
+    "definition": "Muscular tissue in the walls of the heart that contracts to pump blood throughout the body.",
+    "details": "Cardiac muscle is a specialized type of muscle tissue found in the heart. Unlike skeletal muscle, which is under voluntary control, cardiac muscle contracts automatically in response to electrical signals generated by the heart's pacemaker cells. The muscle fibers are arranged in a network that enables the heart to contract and pump blood efficiently. Cardiac muscle is highly resistant to fatigue and can continue to contract rhythmically for a lifetime."
     },
     "KTBBFC54": {
-        "title": "Heart Sound",
-        "info": "The sounds heard during a heartbeat, caused by the closing of heart valves."
-    },
-    "KTBBFC94": {
-        "title": "Working of Heart",
-        "info": "The process by which the heart pumps blood throughout the body, consisting of the cardiac cycle and the regulation of cardiac output."
-    },
-    "KTBBFC24": {
-        "title": "Component Of Blood Vascular System",
-        "info": "The various structures that make up the circulatory system, including the heart, blood vessels, and blood."
-    } 
-}  
+      "topic": "Heart Sound",
+      "definition": "The sounds heard during a heartbeat, caused by the closing of heart valves.",
+      "details": "Heart sounds are a result of the movement and closure of the heart valves during the cardiac cycle. The first heart sound is caused by the closure of the mitral and tricuspid valves, while the second heart sound is due to the closure of the aortic and pulmonary valves. Heart murmurs, abnormal heart sounds, can be indicative of underlying heart conditions."
+      },
+      "KTBBFC94": {
+      "topic": "Working of Heart",
+      "definition": "The process by which the heart pumps blood throughout the body, consisting of the cardiac cycle and the regulation of cardiac output.",
+      "details": "The heart is responsible for pumping blood throughout the body to supply oxygen and nutrients to organs and tissues. The cardiac cycle consists of the systole (contraction) and diastole (relaxation) of the heart, while cardiac output is the amount of blood pumped by the heart per minute. The regulation of cardiac output involves various mechanisms such as the autonomic nervous system and hormones."
+      },
+      "KTBBFC24": {
+      "topic": "Component Of Blood Vascular System",
+      "definition": "The various structures that make up the circulatory system, including the heart, blood vessels, and blood.",
+      "details": "The circulatory system is responsible for the transport of oxygen, nutrients, and waste products throughout the body. The heart is the pump that propels the blood, while blood vessels such as arteries, veins, and capillaries serve as the conduits for blood flow. Blood is composed of plasma, red blood cells, white blood cells, and platelets, each with their own unique roles in maintaining overall health."
+      }
+    }

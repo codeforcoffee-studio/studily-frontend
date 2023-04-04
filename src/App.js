@@ -3,7 +3,8 @@ import './App.css';
 import VisReact from "./visreact";
 
 import "./styles.css";
-import { Grid, Card, Text, Spacer, Input, Button} from '@geist-ui/core'
+import { Grid, Card, Text, Spacer, Input, Button} from '@geist-ui/core';
+import { CornerDownLeft, Coffee } from '@geist-ui/icons'
 
 import logo from "./imgs/Studily.png"
 import InfoPage from './InfoPage';
@@ -48,12 +49,24 @@ const App = () => {
       <Grid.Container gap={0} justify="center" align='center' height="100%">
         <Grid xs={24} md={12} width="100%" style={styles.grid}>
           <Spacer h={1}/>
-          <img src={logo} alt="Logo" style={styles.img}/>
-
+          {/* <img src={logo} alt="Logo" style={styles.img}/> */}
           <div style={styles.input}>
-            <Input scale={4/3} clearable placeholder="keyword" width="80%" value={value} onChange={handler} />
-            <Button shadow type="secondary" scale={0.5}>search</Button>
+            Studily by
+            <Button icon={<Coffee />} auto>Code for Coffee</Button>
           </div>
+
+          <Spacer h={1}/>
+          <div style={styles.input}>
+            <input style={{
+              borderRadius:"10px",
+              padding: "10px",
+              border: "0px solid #ccc",
+              boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)"
+            }} ></input>
+            <Spacer w={1}/>
+            <Button icon={<CornerDownLeft />} auto></Button>
+          </div>
+
  
           <div className="vis-react">
             <VisReact selectNode={selectNode}/>
