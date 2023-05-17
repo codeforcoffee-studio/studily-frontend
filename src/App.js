@@ -71,7 +71,7 @@ const App = () => {
         edges.push({from: 0, to: i+1, arrows: { from: { enabled: false, type: 'arrow' } }});
       }
       console.log(nodes);
-      console.log(edges);
+      console.log(edges); 
 
       let newGraph = {nodes: nodes, edges: edges};
       console.log(newGraph);
