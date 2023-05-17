@@ -31,13 +31,12 @@ const InfoPage = ({node}) => {
             <Button icon={<Flag />} auto>Flag</Button>
             <Button icon={<Settings />} auto>Settings</Button>
             {
-                node !== undefined ? 
+                node != null ? 
                 <div style={styles.div}>
-                   
                     <Spacer h={3}/>
-                    <Text h3>{nodeDetails[node].topic}</Text>  
+                    <Text h3>{node.label}</Text>  
                     
-                    <div class="box">
+                    {/* <div class="box">
                         <p>Definition: {nodeDetails[node].definition}</p>  
                     </div>
 
@@ -51,7 +50,7 @@ const InfoPage = ({node}) => {
                         <Spacer h={0.5}/>
                         <Button icon={<Zap />} auto scale={0.8}>Summarize</Button>
                     </div>
-                    <p style={styles.p}>{nodeDetails[node].details}</p> 
+                    <p style={styles.p}>{nodeDetails[node].details}</p>  */}
                 </div>
                 :
                 <></>

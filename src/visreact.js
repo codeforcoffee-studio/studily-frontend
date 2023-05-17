@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Graph from "vis-react";
 // import { getObjects } from '../../../Utils';
-import initialGraph from "./data.json";
+
 var highlightActive = false;
 
 
@@ -174,6 +174,13 @@ export default class VisReact extends Component {
   componentWillMount() {
     this.mounted = true;
   }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("data length: ", nextProps.initialGraph.length);
+    this.setState({ jsonData: nextProps.initialGraph });  
+    this.drawGraph(nextProps.initialGraph);
+  }
+
   constructor(props) {
     super(props);
     this.events = {
@@ -198,8 +205,11 @@ export default class VisReact extends Component {
         this.redirectToLearn(event, this.props.searchData);
       }
     };
-    let jsonData = initialGraph;
+    let jsonData = props.initialGraph;
+    this.drawGraph(jsonData);
+  }
 
+  drawGraph(jsonData){
     let nodes = [];
     let edges = [];
 
