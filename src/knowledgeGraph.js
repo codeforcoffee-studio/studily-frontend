@@ -1,7 +1,7 @@
 import React, { Component, Fragment, useEffect, useState } from "react";
 import Graph from "vis-react";
 
-const KnowledgeGraph = ({initGraph, selectNode}) => {
+const KnowledgeGraph = ({initGraph, selectNode, handleDragNode}) => {
   const [graph, setGraph] = useState(null);
   const [selectedNode, setSelectedNode] = useState(null);
 
@@ -13,7 +13,7 @@ const KnowledgeGraph = ({initGraph, selectNode}) => {
     const { nodes } = event;
     console.log("selected node: ", nodes[0]);
     setSelectedNode(nodes[0]);
-    selectNode(nodes);
+    selectNode(nodes[0]);
   };
 
   const handleDragEnd = (event) => {
@@ -22,6 +22,7 @@ const KnowledgeGraph = ({initGraph, selectNode}) => {
 
     console.log('Dragged Node ID:', nodeId);
     console.log('Target DOM Element:', targetNode);
+    handleDragNode(nodeId);
   };
 
   
@@ -37,7 +38,7 @@ const KnowledgeGraph = ({initGraph, selectNode}) => {
       shape: "dot",
       size: 13,
       borderWidth: 1.5,
-      borderWidthSelected: 2,
+      borderWidthSelected: 3,
       font: {
         size: 15,
         align: "center",

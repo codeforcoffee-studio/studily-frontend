@@ -3,7 +3,7 @@ import './App.css';
 import VisReact from "./visreact";
 
 import "./styles.css";
-import { Grid, Card, Text, Spacer, Input, Button} from '@geist-ui/core';
+import { Grid, Card, Text, Spacer, Input, Button, Spinner } from '@geist-ui/core';
 import { CornerDownLeft, Coffee } from '@geist-ui/icons'
 
 import logo from "./imgs/Studily.png"
@@ -15,11 +15,15 @@ import axios from 'axios';
 import KnowledgeGraph from './knowledgeGraph';
 import VisGraph from './drag-experiment';
 import HighlightOnDragComponent from './drag-experiment';
+import SearchButton from './components/searchButton';
 
 const App = () => {
   const [searchValue, setSearchValue] = useState("")
   const [node, setNode] = useState(null)
   const [graph, setGraph] = useState(null);
+  const [definitions, setDefinitions] = useState({});
+  const [waiting, setWaiting] = useState(false);
+  const [dragNode, setDragNode] = useState(null);
 
   const styles = {
     grid: {
@@ -38,6 +42,16 @@ const App = () => {
       width: "100%",
       justifyContent: 'center',
       alignContent: 'center'
+    },
+    scroll: {
+      // margin:"4px, 4px",
+      // padding:"4px",
+      // backgroundColor: "green",
+      width: "100%",
+      height: "100%",
+      overflowX: "hidden",
+      overflowY: "auto",
+      textAlign: "center"
     }
   }
 
@@ -47,8 +61,9 @@ const App = () => {
 
   const onSubmitButtonPressed = () => {
     console.log("submitting ", searchValue);
+    setWaiting(true);
 
-    axios.post('http://140.99.171.75:8000/api/chatgpt_api', { "keyword": `${searchValue}` })
+    axios.post('http://140.99.171.75:8000/api/chatgpt_api', { "type": "keyword-list", "keyword": `${searchValue}` })
     .then(res => {
       console.log(res);
       console.log(res.data.message);
@@ -76,16 +91,41 @@ const App = () => {
       let newGraph = {nodes: nodes, edges: edges};
       console.log(newGraph);
       setGraph(newGraph);
+      setWaiting(false);
     })
     .catch(error => {
       console.error(error);
     });
   }
 
-  const selectNode = (nodes) => {
-    const node_id = nodes[0];
+  const selectNode = (node_id) => {
     console.log("Selected nodes: ", graph.nodes[node_id]);
-    setNode(graph.nodes[node_id]);
+    const keyword = graph.nodes[node_id].label;
+    if(!definitions[keyword]){
+      axios.post('http://140.99.171.75:8000/api/chatgpt_api', { "type": "keyword-explanation", "keyword": keyword + " in the context of " + `${searchValue} ` })
+      .then(res => {
+        console.log(res.data.message);
+        setDefinitions({[searchValue]: res.data.message});
+        const nodeObj = {
+          ...graph.nodes[node_id],
+          'definition': res.data.message
+        }
+        setNode(nodeObj);
+      })
+    }
+  
+    const nodeObj = {
+      ...graph.nodes[node_id],
+      'definition': definitions[keyword]
+    }
+    setNode(nodeObj);
+  }
+
+  const handleDragNode = (node_id) => {
+    const nodeObj = {
+      ...graph.nodes[node_id],
+    }
+    setDragNode(nodeObj);
   }
 
   return (
@@ -122,16 +162,27 @@ const App = () => {
           {/* <div className="vis-react">
             <MyGraph />
           </div> */}
+          {
+            waiting ? 
+            <div>
+              <Spacer h={5}/>
+              <Spinner />
+            </div>
+            :
+            <div className="vis-react">
+              <KnowledgeGraph initGraph={graph} selectNode={selectNode} handleDragNode={handleDragNode}/>
+            </div>
+          }
 
-          <div className="vis-react">
-            <KnowledgeGraph initGraph={graph} selectNode={selectNode}/>
+          <SearchButton node={dragNode}/>
+          
 
-          </div>
-
+         
         </Grid>
         <Grid xs={24} md={12}>
-          <InfoPage node={node}/>
-          
+            <div style={styles.scroll}>
+              <InfoPage  initNode={node}/>
+            </div>
         </Grid>
       </Grid.Container>
     </div>
