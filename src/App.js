@@ -128,6 +128,46 @@ const App = () => {
     setDragNode(nodeObj);
   }
 
+  const addGraph = (node, type, depth) => {
+    console.log("searching: " + node.label + " with id " + node.id + " " + type + " " + depth);
+    if(type === "breath"){
+      axios.post('http://140.99.171.75:8000/api/chatgpt_api', { "type": "keyword-list", "keyword": `${node.label}` })
+      .then(res => {
+        console.log(res);
+        console.log(res.data.message);
+        let relatedKeywords = res.data.message.replace(/\./g, '').split(', ');
+  
+        let nodes = [];
+        let edges = [];
+        // nodes: [
+        //   { id: 1, label: "Node 1" },
+        //   { id: 2, label: "Node 2" },
+        //   { id: 3, label: "Node 3" }
+        // ],
+        // edges: [
+        //   { from: 1, to: 2 },
+        //   { from: 1, to: 3 }
+        // ]
+        for(var i = 0; i < 5; i+=1){
+          nodes.push({id: graph.nodes.length + (i+1), label: `${relatedKeywords[i]}`, color: "#D4D4D4"});
+          edges.push({from: node.id, to: graph.nodes.length + (i+1), arrows: { from: { enabled: false, type: 'arrow' } }});
+        }
+        console.log(nodes);
+        console.log(edges); 
+  
+        let newGraph = {nodes: graph.nodes.concat(nodes), edges: graph.edges.concat(edges)};
+        console.log(newGraph);
+        setGraph(newGraph);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    }
+    else if(type === "depth"){
+
+    }
+  }  
+
   return (
     <div className="App">
       <Grid.Container gap={0} justify="center" align='center' height="100%">
@@ -162,6 +202,7 @@ const App = () => {
           {/* <div className="vis-react">
             <MyGraph />
           </div> */}
+          <SearchButton node={dragNode} addGraph={addGraph}/>
           {
             waiting ? 
             <div>
@@ -173,9 +214,6 @@ const App = () => {
               <KnowledgeGraph initGraph={graph} selectNode={selectNode} handleDragNode={handleDragNode}/>
             </div>
           }
-
-          <SearchButton node={dragNode}/>
-          
 
          
         </Grid>

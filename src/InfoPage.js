@@ -69,9 +69,10 @@ const WikiListComponent = ({ items }) => {
                 </Button>
                 {
                     waitingIndex === index ? 
-                    <Button auto style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Spinner />
-                    </Button>
+                    // <Button auto style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    //     <Spinner />
+                    // </Button>
+                    <Button loading scale={0.75}></Button>
                     :
                     <Button icon={<Zap />} auto scale={0.8} onClick={() => handleClick(item.pageid, index)} style={styles.button}>Summarize</Button>
                 }
@@ -153,9 +154,10 @@ const YouTubeListComponent = ({ items }) => {
                 </Button>
                 {
                     waitingIndex === index ? 
-                    <Button auto style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Spinner />
-                    </Button>
+                    // <Button auto style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    //     <Spinner />
+                    // </Button>
+                    <Button loading scale={0.75}></Button>
                     :
                     <Button icon={<Zap />} auto scale={0.8} onClick={() => handleClick(item.videoId, index)} style={styles.button}>Summarize</Button>
                 }
