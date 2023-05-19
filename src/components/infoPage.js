@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { Card, Text, Spacer, Button, Spinner } from '@geist-ui/core'
 import { Copy, Info, Flag, Settings, Moon, Zap, Youtube, BookOpen } from '@geist-ui/icons';
-import "./styles/info.css";
+import "../styles/info.css";
 import axios from 'axios';
-
-import nodeDetails from "./mockData.json";
 
 const WikiListComponent = ({ items }) => {
     const [summaries, setSummaries] = useState({});

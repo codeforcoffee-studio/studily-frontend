@@ -1,20 +1,15 @@
 import React, {useState} from 'react';
-import './App.css';
-import VisReact from "./visreact";
+import './styles/App.css';
 
-import "./styles.css";
+import "./styles/styles.css";
 import { Grid, Card, Text, Spacer, Input, Button, Spinner } from '@geist-ui/core';
 import { CornerDownLeft, Coffee } from '@geist-ui/icons'
 
 import logo from "./imgs/Studily.png"
-import InfoPage from './InfoPage';
-import initialGraph from "./data.json";
-import initialGraph2 from "./data2.json";
-import MyGraph from './graph-experiment';
+import InfoPage from './components/infoPage';
+
 import axios from 'axios';
-import KnowledgeGraph from './knowledgeGraph';
-import VisGraph from './drag-experiment';
-import HighlightOnDragComponent from './drag-experiment';
+import KnowledgeGraph from './components/knowledgeGraph';
 import SearchButton from './components/searchButton';
 
 const App = () => {
@@ -176,6 +171,7 @@ const App = () => {
           {/* <img src={logo} alt="Logo" style={styles.img}/> */}
           <div style={styles.input}>
             Studily by
+            <Spacer w={0.5}/>
             <Button icon={<Coffee />} auto>Code for Coffee</Button>
           </div>
 
