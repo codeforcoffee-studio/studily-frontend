@@ -10,7 +10,7 @@
     - information display 
         - /components/`infoPage.js`: definition, wiki, youtube
 
-## Libraries
+## libraries
 - React: https://react.dev/
 - Geist UI: https://geist-ui.dev/en-us 
 - Vis-React: https://github.com/anishmprasad/vis-react
