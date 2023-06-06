@@ -17,3 +17,4 @@
 - Vis-React: https://github.com/anishmprasad/vis-react
     - more on vis: https://visjs.github.io/vis-network/docs/network/index.html
 - Axios: https://axios-http.com/
+- React bootstrap: https://react-bootstrap.netlify.app/

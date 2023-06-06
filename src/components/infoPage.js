@@ -202,16 +202,16 @@ const InfoPage = ({initNode, path, graph, centerNode}) => {
                 console.log(error);
             })
 
-            // axios.post('http://140.99.171.75:8000/api/youtube_api', { "type": "keyword_search", "keyword": initNode.label })
-            // .then(res => {
-            //   console.log(res);
-            //   console.log("youtube links: ", res.data.message);
-            //   setYoutubeLinks(res.data.message)
-            //   setWaiting(false);
-            // })
-            // .catch(error => {
-            //     console.log(error);
-            // })
+            axios.post('http://140.99.171.75:8000/api/youtube_api', { "type": "keyword_search", "keyword": initNode.label })
+            .then(res => {
+              console.log(res);
+              console.log("youtube links: ", res.data.message);
+              setYoutubeLinks(res.data.message)
+              setWaiting(false);
+            })
+            .catch(error => {
+                console.log(error);
+            })
         }
     }, [initNode]);
     
@@ -312,7 +312,7 @@ const InfoPage = ({initNode, path, graph, centerNode}) => {
                             <Button icon={<Youtube />} auto scale={0.8}>The Heart, Part 1 - Under Pressure: Crash Course Anatomy & Physiology #25</Button>
                             <Spacer h={0.5}/>
                             <Button icon={<Zap />} auto scale={0.8}>Summarize</Button>
-                        </div>
+                        </div> 
                         <div class="video">
                             <Button icon={<Youtube />} auto scale={0.8}> The Heart, Part 2 - Heart Throbs: Crash Course Anatomy & Physiology #26</Button>
                             <Spacer h={0.5}/>
