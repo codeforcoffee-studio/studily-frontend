@@ -4,6 +4,10 @@ import { Copy, Info, Flag, Settings, Moon, Zap, Youtube, BookOpen } from '@geist
 import "../styles/info.css";
 import axios from 'axios';
 
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const WikiListComponent = ({ items }) => {
     const [summaries, setSummaries] = useState({});
     const [waitingIndex, setWaitingIndex] = useState(-1);
@@ -77,7 +81,7 @@ const WikiListComponent = ({ items }) => {
             </div>
             {
                 summaries[item.pageid] ? 
-                <Text>{summaries[item.pageid]}</Text>
+                <div style={{textAlign: 'left'}}><Text>{summaries[item.pageid]}</Text></div>
                 :
                 <></>
             }
@@ -85,7 +89,7 @@ const WikiListComponent = ({ items }) => {
           :
           <></>
         ))}
-      </div>
+      </div>    
     );
   };
 
@@ -162,7 +166,7 @@ const YouTubeListComponent = ({ items }) => {
             </div>
             {
                 summaries[item.videoId] ? 
-                <Text>{summaries[item.videoId]}</Text>
+                <div style={{textAlign: 'left'}}><Text>{summaries[item.videoId]}</Text></div>
                 :
                 <></>
             }
@@ -173,8 +177,6 @@ const YouTubeListComponent = ({ items }) => {
       </div>
     );
   };
-
-  
 
 const InfoPage = ({initNode}) => {
     const [node, setNode] = useState(null);
@@ -218,7 +220,8 @@ const InfoPage = ({initNode}) => {
             alignItems: 'center',
             width: "100%",
             justifyContent: 'center',
-            alignContent: 'center'
+            alignContent: 'center',
+            textAlign: 'left'
         },
         p: {
             textAlign: "left",
@@ -227,7 +230,30 @@ const InfoPage = ({initNode}) => {
         }
     }
 
-
+    function ControlledTabsExample() {
+        const [key, setKey] = useState('wiki');
+        return (
+            <Tabs
+                id="controlled-tab-example"
+                activeKey={key}
+                onSelect={(k) => setKey(k)}
+                className="mb-3"
+            >
+            <Tab eventKey="wiki" title="Wiki">
+                <WikiListComponent items={wikiLinks}/>
+            </Tab>
+            <Tab eventKey="youtube" title="Youtube">
+                <YouTubeListComponent items={youtubeLinks}/>
+            </Tab>
+            <Tab eventKey="bing" title="Bing">
+                Tab content for Contact
+            </Tab>
+            <Tab eventKey="bilibili" title="Bilibili">
+                Tab content for Contact
+            </Tab>
+            </Tabs>
+        );
+    }
 
     return (
         <Card width="100%" height="100%" style={styles.definition}>
@@ -247,10 +273,8 @@ const InfoPage = ({initNode}) => {
                     <div style={styles.div}>
                         <Spacer h={3}/>
                         <Text h3>{node.label}</Text>  
-                        <Text p>Definition: {node.definition}</Text>  
-
-                        <WikiListComponent items={wikiLinks}/>
-                        <YouTubeListComponent items={youtubeLinks}/>
+                        <Text p><b>Definition</b>: {node.definition}</Text>  
+                        <ControlledTabsExample/>
                         
                         {/* <div class="video">
                             <Button icon={<Youtube />} auto scale={0.8}>The Heart, Part 1 - Under Pressure: Crash Course Anatomy & Physiology #25</Button>
@@ -266,7 +290,6 @@ const InfoPage = ({initNode}) => {
                 :
                 <></>
             }
-           
         </Card>
     );
 }

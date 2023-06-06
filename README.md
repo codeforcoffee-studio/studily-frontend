@@ -1,5 +1,6 @@
 ## run locally
 - `npm install --force`  
+- `npm install --force react-bootstrap`
 - `npm start`
 
 ## project structure
