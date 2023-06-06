@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Card, Text, Spacer, Button, Spinner } from '@geist-ui/core'
-import { Copy, Info, Flag, Settings, Moon, Zap, Youtube, BookOpen } from '@geist-ui/icons';
+import { Copy, Info, Flag, Settings, Moon, Zap, Youtube, BookOpen, Circle, Search, ArrowRight } from '@geist-ui/icons';
+import {  } from '@geist-ui/icons';
 import "../styles/info.css";
 import axios from 'axios';
 
@@ -178,7 +179,9 @@ const YouTubeListComponent = ({ items }) => {
     );
   };
 
-const InfoPage = ({initNode}) => {
+  
+
+const InfoPage = ({initNode, path, graph, centerNode}) => {
     const [node, setNode] = useState(null);
     const [wikiLinks, setWikiLinks] = useState([]);
     const [waiting, setWaiting] = useState(false);
@@ -199,16 +202,16 @@ const InfoPage = ({initNode}) => {
                 console.log(error);
             })
 
-            axios.post('http://140.99.171.75:8000/api/youtube_api', { "type": "keyword_search", "keyword": initNode.label })
-            .then(res => {
-              console.log(res);
-              console.log("youtube links: ", res.data.message);
-              setYoutubeLinks(res.data.message)
-              setWaiting(false);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+            // axios.post('http://140.99.171.75:8000/api/youtube_api', { "type": "keyword_search", "keyword": initNode.label })
+            // .then(res => {
+            //   console.log(res);
+            //   console.log("youtube links: ", res.data.message);
+            //   setYoutubeLinks(res.data.message)
+            //   setWaiting(false);
+            // })
+            // .catch(error => {
+            //     console.log(error);
+            // })
         }
     }, [initNode]);
     
@@ -227,7 +230,21 @@ const InfoPage = ({initNode}) => {
             textAlign: "left",
             margin: "20px",
             padding: "10px"
-        }
+        },
+        divcol: {
+            background: '#E4C9C9', 
+            padding: '4px', 
+            borderRadius: '10px',
+            margin: '5px',
+            display: 'flex', 
+            flexDirection: 'column',
+            alignContent: "center"
+        },
+        divrow: {
+            display: 'flex', 
+            flexDirection: 'row',
+            justifyContent: 'center'
+        },
     }
 
     function ControlledTabsExample() {
@@ -262,16 +279,31 @@ const InfoPage = ({initNode}) => {
             <Button icon={<Info />} auto>Info</Button>
             <Button icon={<Flag />} auto>Flag</Button>
             <Button icon={<Settings />} auto>Settings</Button>
+            <Spacer h={1}/>
+            <div style={styles.divrow}>
+                {path.map((item, index) => (
+               
+                <div style={styles.divrow}>
+                    {item !== 0 ?
+                        <Button icon={<ArrowRight />} auto></Button>    
+                        :
+                        <></>
+                    }
+                    <Button icon={<Circle />} auto onClick={()=>{centerNode(item)}}>{graph.nodes[item].label}</Button>
+                </div>
+               
+                ))}
+            </div>
             {
                 node != null ? 
                     waiting ? 
                     <div style={styles.div}>
-                        <Spacer h={5}/>
+                        <Spacer h={1}/>
                         <Spinner/>
                     </div>
                     :
                     <div style={styles.div}>
-                        <Spacer h={3}/>
+                        <Spacer h={1}/>
                         <Text h3>{node.label}</Text>  
                         <Text p><b>Definition</b>: {node.definition}</Text>  
                         <ControlledTabsExample/>

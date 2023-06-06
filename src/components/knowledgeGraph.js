@@ -1,13 +1,91 @@
 import React, { Component, Fragment, useEffect, useState } from "react";
 import Graph from "vis-react";
 
-const KnowledgeGraph = ({initGraph, selectNode, handleDragNode}) => {
+const KnowledgeGraph = ({initGraph, selectNode, handleDragNode, gravity, nodeSize}) => {
   const [graph, setGraph] = useState(null);
   const [selectedNode, setSelectedNode] = useState(null);
+  const [options, setOptions] = useState({});
 
   useEffect(()=>{
     setGraph(initGraph);
-  }, [initGraph]);
+
+    let options = {
+      layout: {
+        randomSeed: 2
+      },
+      nodes: {
+        fixed: {
+          x: false,
+          y: false
+        },
+        shape: "dot",
+        size: nodeSize, // default to 13
+        borderWidth: 1.5,
+        borderWidthSelected: 3,
+        font: {
+          size: 15,
+          align: "center",
+          bold: {
+            color: "#bbbdc0",
+            size: 15,
+            vadjust: 0,
+            mod: "bold"
+          }
+        }
+      },
+      edges: {
+        width: 0.01,
+        color: {
+          color: "#D3D3D3",
+          highlight: "#797979",
+          hover: "#797979",
+          opacity: 1.0
+        },
+        arrows: {
+          to: { enabled: true, scaleFactor: 1, type: "arrow" },
+          middle: { enabled: false, scaleFactor: 1, type: "arrow" },
+          from: { enabled: true, scaleFactor: 1, type: "arrow" }
+        },
+        smooth: {
+          type: "continuous",
+          roundness: 0
+        }
+      },
+      // physics: {
+      //   forceAtlas2Based: {
+      //       gravitationalConstant: -200,
+      //       centralGravity: 0.05,
+      //       springLength: 230,
+      //       springConstant: 0.08,
+      //       avoidOverlap:9
+      //   },
+      //   solver: 'forceAtlas2Based',
+      //   timestep: 0.35,
+      //   stabilization: {enabled:true,iterations: 10}
+      // },
+      physics: {
+        barnesHut: {
+          gravitationalConstant: -30000,
+          centralGravity: gravity ? 1 : 0,
+          springLength: 70,
+          avoidOverlap: 1
+        },
+        stabilization: { iterations: 2500 }
+      },
+      interaction: {
+        hover: true,
+        hoverConnectedEdges: true,
+        hoverEdges: true,
+        selectable: true,
+        selectConnectedEdges: false,
+        zoomView: false,
+        dragView: false
+      }
+    };
+
+    setOptions(options);
+
+  }, [initGraph, gravity, nodeSize]);
 
   const handleSelectNode = (event) => {
     const { nodes } = event;
@@ -23,81 +101,6 @@ const KnowledgeGraph = ({initGraph, selectNode, handleDragNode}) => {
     console.log('Dragged Node ID:', nodeId);
     console.log('Target DOM Element:', targetNode);
     handleDragNode(nodeId);
-  };
-
-  
-  let options = {
-    layout: {
-      randomSeed: 2
-    },
-    nodes: {
-      fixed: {
-        x: false,
-        y: false
-      },
-      shape: "dot",
-      size: 13,
-      borderWidth: 1.5,
-      borderWidthSelected: 3,
-      font: {
-        size: 15,
-        align: "center",
-        bold: {
-          color: "#bbbdc0",
-          size: 15,
-          vadjust: 0,
-          mod: "bold"
-        }
-      }
-    },
-    edges: {
-      width: 0.01,
-      color: {
-        color: "#D3D3D3",
-        highlight: "#797979",
-        hover: "#797979",
-        opacity: 1.0
-      },
-      arrows: {
-        to: { enabled: true, scaleFactor: 1, type: "arrow" },
-        middle: { enabled: false, scaleFactor: 1, type: "arrow" },
-        from: { enabled: true, scaleFactor: 1, type: "arrow" }
-      },
-      smooth: {
-        type: "continuous",
-        roundness: 0
-      }
-    },
-    // physics: {
-    //   forceAtlas2Based: {
-    //       gravitationalConstant: -200,
-    //       centralGravity: 0.05,
-    //       springLength: 230,
-    //       springConstant: 0.08,
-    //       avoidOverlap:9
-    //   },
-    //   solver: 'forceAtlas2Based',
-    //   timestep: 0.35,
-    //   stabilization: {enabled:true,iterations: 10}
-    // },
-    physics: {
-      barnesHut: {
-        gravitationalConstant: -30000,
-        centralGravity: 1,
-        springLength: 70,
-        avoidOverlap: 1
-      },
-      stabilization: { iterations: 2500 }
-    },
-    interaction: {
-      hover: true,
-      hoverConnectedEdges: true,
-      hoverEdges: true,
-      selectable: true,
-      selectConnectedEdges: false,
-      zoomView: false,
-      dragView: false
-    }
   };
 
   let events = {

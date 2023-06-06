@@ -76,9 +76,9 @@ const SearchButton = ({node, addGraph}) => {
                     "(drag & drop)"
                 }
             </Button>
-             
+            <Button icon={<Search />} auto onClick={onSubmitButtonPressed}></Button>
         </div>
-        <div style={styles.divrow}>
+        {/* <div style={styles.divrow}>
         <Fragment>
                 <Spacer w={1}/>
                 <Text small>for a depth of</Text>
@@ -91,7 +91,7 @@ const SearchButton = ({node, addGraph}) => {
             </Fragment>
             <Spacer w={1}/>
             <Button icon={<Search />} auto onClick={onSubmitButtonPressed}></Button>
-        </div>
+        </div> */}
     </div>
   );
 };
