@@ -261,7 +261,7 @@ const App = () => {
           <div style={styles.input}>
             Studily by
             <Spacer w={0.5}/>
-            <Button icon={<Coffee />} auto>Code for Coffee</Button>
+            <Button icon={<Coffee />} auto><a href='https://github.com/codeforcoffee-studio' target="_blank" rel="noreferrer">Code for Coffee</a></Button>
           </div>
 
           <Spacer h={1}/>
