@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { Card, Text, Spacer, Button, Spinner, Tabs } from '@geist-ui/core'
-import { Copy, Info, Flag, Settings, Moon, Zap, Youtube, BookOpen, Circle, Search, ArrowRight, Play } from '@geist-ui/icons';
+import { Card, Text, Spacer, Button, Spinner, Tabs, Modal } from '@geist-ui/core'
+import { Copy, Info, Flag, Settings, Moon, Zap, Youtube, BookOpen, Circle, Search, ArrowRight, Play, User, Save } from '@geist-ui/icons';
 import {  } from '@geist-ui/icons';
 import "../styles/info.css";
 import axios from 'axios';
@@ -563,22 +563,11 @@ const InfoPage = ({initNode, path, graph, centerNode}) => {
     const [youtubeLinks, setYoutubeLinks] = useState([]);
     const [bingLinks, setBingLinks] = useState([]);
     const [bilibiliLinks, setBilibiliLinks] = useState([]);
+    const [modal, setModal] = useState(false);
 
     useEffect(()=>{
         if(initNode){
             setNode(initNode);
-          
-
-            // axios.post('http://140.99.171.75:8000/api/bilibili_api_api', { "type": "video", "keyword": initNode.label })
-            // .then(res => {
-            //   console.log(res);
-            //   console.log("bilibili links: ", res.data.message);
-            //   setBilibiliLinks(res.data.message)
-            //   setWaiting(false);
-            // })
-            // .catch(error => {
-            //     console.log(error);
-            // })
         }
     }, [initNode]);
     
@@ -612,16 +601,46 @@ const InfoPage = ({initNode, path, graph, centerNode}) => {
             flexDirection: 'row',
             justifyContent: 'center'
         },
+        buttons: {
+            display: 'flex', 
+            flexDirection: 'row',
+            justifyContent: 'center'
+        },
     }
+
+    const content = () => (
+    <div style={{ padding: '10 10px' }}>
+      <Text h4>{"CodeForCoffee"}</Text>  
+      <Spacer h={.5} />
+    </div>
+  )
 
 
     return (
         <Card width="100%" height="100%" style={styles.definition}>
-            <Button icon={<Copy />} auto>Copy</Button>
-            <Button icon={<Moon />} auto>Mode</Button>
-            <Button icon={<Info />} auto>Info</Button>
-            <Button icon={<Flag />} auto>Flag</Button>
-            <Button icon={<Settings />} auto>Settings</Button>
+            <div style={styles.buttons}>
+            <Button icon={<Save />} auto disabled>Save</Button>
+                <Button icon={<Moon />} auto disabled>Mode</Button>
+                <Button icon={<Copy />} auto disabled>Copy</Button>
+                <Button icon={<Flag />} auto disabled>Flag</Button>
+                <Button icon={<Settings />} auto disabled>Settings</Button>
+                <Button icon={<Info />} auto onClick={()=>setModal(!modal)}>
+                    <Modal visible={modal} onClose={()=>setModal(!modal)}>
+                        <Modal.Title>About Studily</Modal.Title>
+                        <Modal.Content>
+                            <p style={{textAlign: 'center'}}>
+                                Studily is a study copilot to help you learn faster. 🧐
+                                Give a keyword, it automatically generates a knowledge graph 🕸️ with related terms and definitions. 
+                                It queries other APIs such as Wikipedia and YouTube to provide more context and resources, with the option to quickly summarize the content inside those links.
+                                You're able to expand the knowledge graph with breath-first and depth-first search on any node to further explore and go down the 🐰 hole. 
+                            </p>
+                        </Modal.Content>
+                        <Modal.Subtitle>designed with ❤️ by CodeForCoffee ☕</Modal.Subtitle>
+                    </Modal>
+                    Info
+                </Button>
+            </div>
+           
             <Spacer h={1}/>
             <div style={styles.divrow}>
                 {path.map((item, index) => (
