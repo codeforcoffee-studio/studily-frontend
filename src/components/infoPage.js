@@ -12,7 +12,7 @@ const WikiListComponent = ({initNode}) => {
     const [waiting, setWaiting] = useState(false);
 
     useEffect(()=>{
-        if(initNode && items.length === 0){
+        if(initNode){
             setWaiting(true);
             axios.post('http://140.99.171.75:8000/api/wiki_api', { "type": "keyword_search", "keyword": initNode.label })
             .then(res => {
@@ -112,7 +112,7 @@ const WikiListComponent = ({initNode}) => {
             </div>
             {
                 summaries[item.pageid] ? 
-                <div style={{textAlign: 'left'}}><Text>{summaries[item.pageid]}</Text></div>
+                <div style={{textAlign: 'left', padding: "15px"}}><Text>{summaries[item.pageid]}</Text></div>
                 :
                 <></>
             }
@@ -232,7 +232,7 @@ const YouTubeListComponent = ({ initNode }) => {
             </div>
             {
                 summaries[item.videoId] ? 
-                <div style={{textAlign: 'left'}}><Text>{summaries[item.videoId]}</Text></div>
+                <div style={{textAlign: 'left', padding: "15px"}}><Text>{summaries[item.videoId]}</Text></div>
                 :
                 <></>
             }
