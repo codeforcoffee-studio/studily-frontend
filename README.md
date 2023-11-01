@@ -1,4 +1,4 @@
-## Studily is a 
+## Studily is an NLP based study helper that creates an interactive visual knowledge graph which centralizes learning by collecting information from API's including Wikipedia, YouTube, and Bilibili.
 <img width="300" alt="image" src="https://github.com/codeforcoffee-studio/studily-frontend/assets/26547344/dc6b489c-7d04-4339-8b87-191610433244">  
 
 ## Product Design
